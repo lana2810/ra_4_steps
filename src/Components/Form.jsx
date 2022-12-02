@@ -1,6 +1,6 @@
 import React from "react";
 
-function Form({ form, onChange, onSubmit }) {
+function Form({ form, onChange, onSubmit, err }) {
   return (
     <form className="form-block" onSubmit={onSubmit}>
       <div className="input-block">
@@ -11,7 +11,9 @@ function Form({ form, onChange, onSubmit }) {
           type="date"
           value={form.date}
           onChange={onChange}
-        ></input>
+          className={err.date && "error-form"}
+        />
+        {err.date && <div className="error-form-div">{err.date}</div>}
       </div>
       <div className="input-block">
         <label htmlFor="distance">Пройдено км</label>
@@ -21,9 +23,17 @@ function Form({ form, onChange, onSubmit }) {
           type="text"
           value={form.distance}
           onChange={onChange}
-        ></input>
+          className={err.distance && "error-form"}
+          required
+        />
+        {err.distance && <div className="error-form-div">{err.distance}</div>}
       </div>
-      <button type="submit">ОК</button>
+      <button
+        type="submit"
+        className={(err.distance || err.date) && "flex-center"}
+      >
+        ОК
+      </button>
     </form>
   );
 }

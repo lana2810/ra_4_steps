@@ -63,3 +63,12 @@ td.icon {
 .icon:hover {
   cursor: pointer;
 }
+.error-form {
+  border: 1px solid red;
+}
+.error-form-div {
+  color: red;
+}
+.flex-center {
+  align-self: center;
+}

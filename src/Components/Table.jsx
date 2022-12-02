@@ -2,7 +2,6 @@ import React from "react";
 import formatDate from "../formateDate";
 
 function Table({ items, onDelete, onEdit }) {
-  console.log(items);
   return (
     <table className="table">
       <thead className="table-head">
